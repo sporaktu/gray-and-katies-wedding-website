@@ -1,0 +1,6 @@
+@mixin neuomorphismShadow($color: #ffffff, $transparency: 1, $radius: 16px) {
+  border-radius: $radius;
+  background: $color;
+  box-shadow:  20px 20px 60px rgba(217, 217, 217, $transparency),
+  -20px -20px 60px rgba($color, $transparency);
+}

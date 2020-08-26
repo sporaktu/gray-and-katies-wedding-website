@@ -8,7 +8,7 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss" module>
 @import "./assets/design/index.scss";
 
 .container {

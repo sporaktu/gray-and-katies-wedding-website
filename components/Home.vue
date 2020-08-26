@@ -1,7 +1,9 @@
 <template>
   <div id="home" :class="$style.home">
-    <h1>Gray and Katies</h1>
-    <h2>May 23rd, 2021</h2>
+    <div :class="$style['title-container']">
+      <h1>Gray and Katie</h1>
+      <h2>May 23rd, 2021</h2>
+    </div>
   </div>
 </template>
 
@@ -12,10 +14,42 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import "assets/design/index";
 .home {
+  background: url("~assets/images/StovallKaregeannesES081520-44.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   h1 {
-    color: blue;
-    font-family: 'Crimson Pro', serif;
+    color: $title-color;
+    @include cursive();
+    font-size: 3rem;
   }
+
+  h2 {
+    color: $title-color;
+    font-size: 2rem;
+    @include handwritten();
+  }
+}
+
+.title-container {
+  background: rgba(255,255,255,.5);
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30%;
 }
 </style>

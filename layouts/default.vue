@@ -1,10 +1,24 @@
 <template>
-  <div>
+  <div :class="$style.layout">
     <Nuxt />
+    <Rsvp />
+    <Navigation />
   </div>
 </template>
 
-<style>
+<script>
+import Rsvp from "@/components/Rsvp";
+import Navigation from "@/components/Navigation";
+const DefaultLayout = {
+  components: {
+    Rsvp,
+    Navigation
+  }
+}
+export default DefaultLayout;
+</script>
+
+<style lang="scss" module>
 html {
   font-family:
     'Source Sans Pro',
@@ -58,5 +72,10 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.layout {
+  width: 100vw;
+  height: 100vh;
 }
 </style>

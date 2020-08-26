@@ -45,6 +45,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@aceforth/nuxt-optimized-images',
   ],
   /*
   ** Nuxt.js modules
@@ -57,5 +58,14 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    postcss: {
+      plugins: {
+        'autoprefixer': {},
+        'postcss-font-magician': {},
+      }
+    }
+  },
+  optimizedImages: {
+    optimizedImages: true
   }
 }

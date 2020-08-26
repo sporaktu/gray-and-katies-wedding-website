@@ -15,11 +15,14 @@
     "vue-template-compiler": "^2.6.12"
   },
   "devDependencies": {
+    "@aceforth/nuxt-optimized-images": "^1.2.0",
     "@vue/test-utils": "^1.0.3",
+    "autoprefixer": "^9.8.6",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^26.1.0",
     "jest": "^26.1.0",
     "node-sass": "^4.14.1",
+    "postcss-font-magician": "^2.3.1",
     "sass-loader": "^9.0.3",
     "vue-jest": "^3.0.4"
   }
