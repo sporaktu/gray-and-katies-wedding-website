@@ -38,7 +38,7 @@ export default {
 $line-width: 60px;
 $menu-size: 60px;
 
-* {
+.menu-toggle * {
   transition: .25s ease-in-out;
   box-sizing: border-box;
 }
@@ -58,6 +58,9 @@ $menu-size: 60px;
 
   &:hover {
     background: $translucent-white-background;
+  }
+  &.open {
+    background: none;
   }
   span {
     display:block;
