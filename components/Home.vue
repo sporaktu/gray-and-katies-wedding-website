@@ -1,7 +1,7 @@
 <template>
   <div id="home" :class="$style.home">
     <div :class="$style['title-container']">
-      <h1>Gray and Katie</h1>
+      <h1>Katie and Gray</h1>
       <h2>May 23rd, 2021</h2>
     </div>
   </div>
