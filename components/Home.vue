@@ -44,7 +44,7 @@ export default {
 }
 
 .title-container {
-  background: rgba(255,255,255,.5);
+  background: $transparent-white-background;
   padding: 1em;
   display: flex;
   justify-content: center;

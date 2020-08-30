@@ -26,7 +26,7 @@ export default {
   transform: translateX(-50%);
   padding: 0.2em 0.4em;
   color: black;
-  background: rgba(#fff, 0.5);
+  background: $translucent-white-background;
   cursor: pointer;
   font-size: 2rem;
   transition: color 0.1s cubic-bezier(0.4, 0.0, 0.2, 1), background-color 0.1s cubic-bezier(0.4, 0.0, 0.2, 1), font-size 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -34,7 +34,7 @@ export default {
   &:hover {
     color: $gold;
     font-size: 4rem;
-    background: rgba(#fff, 1);
+    background: $translucent-white-background;
   }
 }
 </style>
