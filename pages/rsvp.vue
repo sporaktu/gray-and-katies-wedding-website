@@ -18,8 +18,10 @@
             </div>
           </div>
           <div :class="[$style.row, $style.wide]">
-            <div>Will you be attending?</div>
-            <button>Attending</button>
+            <v-checkbox :class="$style.checkbox" v-model="attending" label="Will you be attending?" />
+          </div>
+          <div :class="$style.requests" v-if="attending">
+
           </div>
         </form>
       </div>
@@ -35,6 +37,11 @@ export default {
   name: "rsvp",
   components: {
     layout: page
+  },
+  data() {
+    return {
+      attending: false,
+    }
   }
 }
 </script>
@@ -89,6 +96,13 @@ export default {
   flex-direction: column;
 
   input[type="text"] {
+    font-size: 2rem;
+  }
+}
+.checkbox {
+  font-size: 2rem;
+
+  .v-label {
     font-size: 2rem;
   }
 }

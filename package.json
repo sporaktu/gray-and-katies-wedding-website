@@ -10,12 +10,14 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "nuxt": "^2.14.0",
     "vue-template-compiler": "^2.6.12"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.2.0",
+    "@nuxtjs/vuetify": "^1.11.2",
     "@vue/test-utils": "^1.0.3",
     "autoprefixer": "^9.8.6",
     "babel-core": "7.0.0-bridge.0",

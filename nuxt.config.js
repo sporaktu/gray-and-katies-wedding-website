@@ -46,6 +46,7 @@ export default {
   */
   buildModules: [
     '@aceforth/nuxt-optimized-images',
+    '@nuxtjs/vuetify',
   ],
   /*
   ** Nuxt.js modules
