@@ -30,6 +30,8 @@ export default {
 <style lang="scss" module>
 @import "assets/design";
 
+$button-size: 3.75rem;
+
 $menu-width: 16rem;
 .navigation {
   position: fixed;
@@ -45,8 +47,7 @@ $menu-width: 16rem;
 
     .nav-opener {
       position: absolute;
-      left: 0.5rem;
-      right: 0.5rem;
+      left: ($menu-width - $button-size - 0.5rem);
     }
   }
 }

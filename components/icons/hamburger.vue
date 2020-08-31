@@ -36,7 +36,7 @@ export default {
 @import "./assets/design/index.scss";
 
 $line-width: 60px;
-$menu-size: 60px;
+$container-size: 60px;
 
 .menu-toggle * {
   transition: .25s ease-in-out;
@@ -45,8 +45,8 @@ $menu-size: 60px;
 
 
 .menu-toggle {
-  width: $menu-size;
-  height: $menu-size;
+  width: $container-size;
+  height: $container-size;
   margin: auto;
   position: relative;
   cursor: pointer;
