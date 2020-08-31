@@ -17,8 +17,12 @@
               <input type="text" name="lastName" id="lastName">
             </div>
           </div>
-          <div :class="[$style.row, $style.wide]">
-            <v-checkbox :class="$style.checkbox" v-model="attending" label="Will you be attending?" />
+          <div :class="[$style.row, $style.wide, $style['toggle-row']]" @click="toggleAttending">
+            <label  for="attending" :class="$style.label">
+              <span />
+              Will you be attending?
+            </label>
+            <input id="attending" name="attending" type="checkbox" />
           </div>
           <div :class="$style.requests" v-if="attending">
 
@@ -41,6 +45,11 @@ export default {
   data() {
     return {
       attending: false,
+    }
+  },
+  methods: {
+    toggleAttending() {
+      this.attending = !this.attending;
     }
   }
 }
@@ -72,7 +81,7 @@ export default {
 
 .row {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
 
   &.wide {
@@ -91,6 +100,10 @@ export default {
   }
 }
 
+.toggle-row {
+  cursor: pointer;
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -102,9 +115,6 @@ export default {
 .checkbox {
   font-size: 2rem;
 
-  .v-label {
-    font-size: 2rem;
-  }
 }
 
 .background {
@@ -116,4 +126,10 @@ export default {
   background-position: right;
   background-attachment: fixed;
 }
+</style>
+
+<style lang="scss" scoped>
+  label {
+    font-size: 2rem;
+  }
 </style>
