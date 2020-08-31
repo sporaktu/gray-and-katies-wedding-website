@@ -1,15 +1,21 @@
 <template>
-  <div :class="$style.rsvp" @click="handleRsvp">
-    rsvp
+  <div
+    v-if="show"
+    :class="$style.rsvp">
+    <n-link to="/rsvp">rsvp</n-link>
   </div>
 </template>
 
 <script>
 export default {
   name: "Rsvp",
-  methods: {
-    handleRsvp() {
-      console.log('RSVP')
+  computed: {
+    /**
+     * Determines if the user is on the RSVP page or not. Returns whether to show the RSVP button or not.
+     * @returns {boolean}
+     */
+    show() {
+      return this.$nuxt.$route.path !== '/rsvp';
     }
   }
 }

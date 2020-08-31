@@ -3,6 +3,14 @@
     <div :class="$style['nav-opener']">
       <Hamburger @toggleMenu="toggleMenu"/>
     </div>
+    <div :class="$style.links">
+      <n-link to="/">Home</n-link>
+      <n-link to="/story">Our Story</n-link>
+      <n-link to="/gallery">Our Memories</n-link>
+      <n-link to="/event">Event Details</n-link>
+      <n-link to="/registry">Registry</n-link>
+      <n-link to="/rsvp">RSVP</n-link>
+    </div>
   </div>
 </template>
 
@@ -41,6 +49,7 @@ $menu-width: 16rem;
   width: $menu-width;
   background: $translucent-white-background;
   transition: left ease-in-out 0.2s;
+  padding: 4rem 2rem;
 
   &.open {
     left: 0;
@@ -54,8 +63,19 @@ $menu-width: 16rem;
 
 .nav-opener {
   position: fixed;
-  left: 0;
-  top: 0;
+  left: 0.5rem;
+  top: 0.5rem;
   transition: right ease-in-out 0.2s, left ease-in-out 0.2s;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+  font-weight: bold;
+
+  a {
+    margin-bottom: 1rem;
+  }
 }
 </style>
