@@ -29,12 +29,14 @@ export default {
   ** Global CSS
   */
   css: [
+    '@braid/vue-formulate/themes/snow/snow.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/vue-formulate'
   ],
   /*
   ** Auto import components
@@ -53,6 +55,7 @@ export default {
   */
   modules: [
     '@nuxtjs/pwa',
+    '@nuxtjs/axios'
   ],
   /*
   ** Build configuration
@@ -68,5 +71,19 @@ export default {
   },
   optimizedImages: {
     optimizedImages: true
+  },
+  axios: {
+    baseURL: 'http://localhost:3002'
+  },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
   }
 }

@@ -79,3 +79,7 @@ html {
   height: 100vh;
 }
 </style>
+
+<style lang="scss">
+@import "assets/design/vueForumlateOverrides";
+</style>

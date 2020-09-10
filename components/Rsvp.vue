@@ -25,11 +25,11 @@ export default {
 @import "assets/design/index";
 
 .rsvp {
-  @include handwritten();
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  text-transform: uppercase;
   padding: 0.2em 0.4em;
   color: black;
   background: $translucent-white-background;

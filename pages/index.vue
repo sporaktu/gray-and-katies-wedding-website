@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
       <Home />
   </div>
 </template>
@@ -50,3 +50,5 @@ export default {}
   padding-top: 15px;
 }
 </style>
+
+

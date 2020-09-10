@@ -1,0 +1,51 @@
+@import 'colors';
+@import "fonts";
+
+.formulate-input {
+  @include body();
+  .formulate-input-label {
+    @include body();
+    font-size: 1.5em;
+  }
+
+  &[data-type="checkbox"] {
+    cursor: pointer;
+  }
+
+  .formulate-input-element {
+    max-width: 100%;
+  }
+}
+
+
+.formulate-input[data-classification=text] input {
+  @include body();
+  font-size: 1.5em;
+  padding: 0.25em;
+  border-radius: 0;
+
+  &:focus {
+    border-color: $gold;
+  }
+}
+
+.formulate-input[data-classification=box] .formulate-input-element input[type=checkbox]:checked ~ .formulate-input-element-decorator {
+  border-color: $gold;
+  &:before {
+    background-color: $gold;
+  }
+}
+
+.formulate-input[data-classification=box] .formulate-input-label--after {
+  cursor: pointer;
+}
+
+.formulate-input[data-classification=button] button {
+  border-color: $gold;
+  background-color: $gold;
+  @include body();
+
+  &:hover {
+    background-color: $dark-gold;
+  }
+}

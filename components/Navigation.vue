@@ -5,10 +5,10 @@
     </div>
     <div :class="$style.links">
       <n-link to="/">Home</n-link>
-      <n-link to="/story">Our Story</n-link>
-      <n-link to="/gallery">Our Memories</n-link>
-      <n-link to="/event">Event Details</n-link>
-      <n-link to="/registry">Registry</n-link>
+<!--      <n-link to="/story">Our Story</n-link>-->
+<!--      <n-link to="/gallery">Our Memories</n-link>-->
+<!--      <n-link to="/event">Event Details</n-link>-->
+<!--      <n-link to="/registry">Registry</n-link>-->
       <n-link to="/rsvp">RSVP</n-link>
     </div>
   </div>
@@ -72,7 +72,6 @@ $menu-width: 16rem;
   display: flex;
   flex-direction: column;
   font-size: 3rem;
-  font-weight: bold;
 
   a {
     margin-bottom: 1rem;

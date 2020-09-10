@@ -39,7 +39,7 @@ export default {
   h2 {
     color: $title-color;
     font-size: 2rem;
-    @include handwritten();
+    @include body();
   }
 }
 
