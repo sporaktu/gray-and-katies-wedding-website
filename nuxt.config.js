@@ -73,7 +73,7 @@ export default {
     optimizedImages: true
   },
   axios: {
-    baseURL: 'http://localhost:3002'
+    baseURL: process.env.BASE_URL || 'http://localhost:3002'
   },
 
   publicRuntimeConfig: {
