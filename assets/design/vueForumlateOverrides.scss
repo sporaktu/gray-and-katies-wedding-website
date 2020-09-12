@@ -49,3 +49,10 @@
     background-color: $dark-gold;
   }
 }
+
+.formulate-input[data-classification=button] button[disabled] {
+
+  &:hover {
+    background-color: #cecece;
+  }
+}
