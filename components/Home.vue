@@ -21,11 +21,8 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  height: 100%;
-  width: 100%;
-  min-height: 100vh;
-  min-width: 100vw;
-
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
