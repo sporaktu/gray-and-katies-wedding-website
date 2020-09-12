@@ -230,12 +230,13 @@ h4.subtitle {
 
 .background {
   width: 50vw;
-  height: 100%;
+  height: 100vh;
   background: url("~assets/images/StovallKaregeannesES081520-23.jpg");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: right;
   background-attachment: fixed;
+  overflow: hidden;
 }
 
 .submit {

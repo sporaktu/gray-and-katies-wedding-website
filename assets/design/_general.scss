@@ -4,9 +4,9 @@ html {
   @media screen and (max-width: 425px){
     font-size: $base-font-size * 0.8;
   }
-  //@media screen and (max-width: 375px){
-  //  font-size: $base-font-size * 0.7;
-  //}
+  @media screen and (max-width: 375px){
+    font-size: $base-font-size * 0.7;
+  }
 }
 
 body {
