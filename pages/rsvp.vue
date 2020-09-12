@@ -192,8 +192,8 @@ h4.subtitle {
 
 .form {
   background: $less-translucent-white-background;
-  padding: 2rem;
-  max-height: 100vh;
+  padding: 5rem 2rem;
+  max-height: 80vh;
   overflow-y: auto;
 
 }
