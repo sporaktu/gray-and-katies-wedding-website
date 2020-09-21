@@ -124,11 +124,11 @@ export default {
     }
   },
   methods: {
-    submitForm() {
+    async submitForm() {
       const self = this;
       this.loading = true;
       this.failed = false
-      this.$axios.$post('/guests', this.rsvpFormValues)
+      await this.$axios.$post('/guests', this.rsvpFormValues)
         .then(response => {
           this.loading = false;
           if (response !== 'success') {

@@ -4,7 +4,7 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
@@ -36,7 +36,9 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~/plugins/vue-formulate'
+    '~/plugins/vue-formulate',
+    // '~/plugins/appmetadata',
+    '~/plugins/auth0'
   ],
   /*
   ** Auto import components
@@ -55,7 +57,8 @@ export default {
   */
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   /*
   ** Build configuration
@@ -85,5 +88,28 @@ export default {
     axios: {
       baseURL: process.env.BASE_URL
     }
+  },
+  // auth: {
+  //   strategies: {
+  //     auth0: {
+  //       domain: "grayandkatie.us.auth0.com",
+  //       client_id: "ICteoEyvHAtViu1rHLtvG5UuoXp4EU2c",
+  //       audience: process.env.BASE_URL || 'http://localhost:3002'
+  //     }
+  //   },
+  //   redirect: {
+  //     login: '/login',
+  //     // logout: '/',
+  //     // home: '/guests',
+  //     callback: '/callback'
+  //   }
+  // },
+  auth0: {
+    client_id: process.env.CLIENT_ID || "ICteoEyvHAtViu1rHLtvG5UuoXp4EU2c",
+    domain: "grayandkatie.us.auth0.com",
+    updateSessionMinutes: 5
+  },
+  router: {
+    middleware: ['loginUser']
   }
 }

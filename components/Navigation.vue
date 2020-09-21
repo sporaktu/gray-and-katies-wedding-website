@@ -5,6 +5,7 @@
     </div>
     <div :class="$style.links">
       <n-link to="/">Home</n-link>
+      <n-link to="/guests" v-if="$store.state.auth.loggedIn" v>Guests</n-link>
 <!--      <n-link to="/story">Our Story</n-link>-->
 <!--      <n-link to="/gallery">Our Memories</n-link>-->
 <!--      <n-link to="/event">Event Details</n-link>-->
