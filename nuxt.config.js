@@ -55,7 +55,8 @@ export default {
   */
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
   ],
   /*
   ** Build configuration
@@ -84,6 +85,22 @@ export default {
   privateRuntimeConfig: {
     axios: {
       baseURL: process.env.BASE_URL
+    }
+  },
+  auth: {
+    strategies: {
+      auth0: {
+        domain: process.env.DOMAIN || "grayandkatie.us.auth0.com",
+        client_id: process.env.CLIENT_ID || "ICteoEyvHAtViu1rHLtvG5UuoXp4EU2c",
+        audience: process.env.BASE_URL || 'http://localhost:3002',
+        // scope: ['admin'],
+        // responseType: 'code',
+        // grant_type: 'authorization_code',
+        // codeChallengeMethod: 'S256'
+      }
+    },
+    redirect: {
+      callback: '/callback'
     }
   }
 }

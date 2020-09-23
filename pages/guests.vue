@@ -1,15 +1,20 @@
 <template>
   <div :class="$style.guests">
     <h1>Guests</h1>
-    <div class="table">
-      <div :class="$style.guest" v-for="guest in guests">{{guest.firstName}} {{guest.lastName}}</div>
-    </div>
+<!--    <vuetable-->
+<!--      :fields="Object.keys(guests[0])"-->
+<!--      :data="guests"-->
+<!--      :api-mode="false"-->
+<!--    />-->
   </div>
 </template>
 
 <script>
+import Vuetable from 'vuetable-2';
+
 export default {
   name: "guests",
+  components: {Vuetable},
   data() {
     return {
       guests: []

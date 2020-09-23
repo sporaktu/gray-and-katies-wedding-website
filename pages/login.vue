@@ -5,9 +5,9 @@
 <script>
 
 export default {
-name: "login",
+  name: "login",
   mounted() {
-  this.$auth.loginWith('auth0');
+    this.$auth.loginWith('auth0');
   }
 }
 </script>

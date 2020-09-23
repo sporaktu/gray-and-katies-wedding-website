@@ -21,7 +21,8 @@
     "express": "^4.17.1",
     "nuxt": "^2.14.0",
     "nuxt-webfontloader": "^1.1.0",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "vuetable-2": "^2.0.0-beta.4"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.2.0",
