@@ -1,17 +1,40 @@
 <template>
   <div :class="[$style.navigation, {[$style.open]: open}]">
     <div :class="$style['nav-opener']">
-      <Hamburger @toggleMenu="toggleMenu"/>
+      <Hamburger :open="open" @toggleMenu="toggleMenu"/>
     </div>
-    <div :class="$style.links">
-      <n-link to="/">Home</n-link>
-      <n-link v-if="loggedIn" to="/story">Our Story</n-link>
-      <n-link v-if="loggedIn" to="/gallery">Our Memories</n-link>
-      <n-link v-if="loggedIn" to="/event">Event Details</n-link>
-      <n-link v-if="loggedIn" to="/registry">Registry</n-link>
-      <n-link v-if="loggedIn" to="/guests">Guests</n-link>
-      <n-link to="/rsvp">RSVP</n-link>
-    </div>
+    <v-navigation-drawer
+      :class="$style.links"
+      v-model="open"
+      absolute
+      temporary
+    >
+      <v-list nav>
+        <v-list-item-group v-model="group">
+          <v-list-item>
+            <n-link to="/">Home</n-link>
+          </v-list-item>
+          <v-list-item>
+            <n-link v-if="loggedIn" to="/story">Our Story</n-link>
+          </v-list-item>
+          <v-list-item>
+            <n-link v-if="loggedIn" to="/gallery">Our Memories</n-link>
+          </v-list-item>
+          <v-list-item>
+            <n-link v-if="loggedIn" to="/event">Event Details</n-link>
+          </v-list-item>
+          <v-list-item>
+            <n-link v-if="loggedIn" to="/registry">Registry</n-link>
+          </v-list-item>
+          <v-list-item>
+            <n-link v-if="loggedIn" to="/guests">Guests</n-link>
+          </v-list-item>
+          <v-list-item>
+            <n-link to="/rsvp">RSVP</n-link>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
   </div>
 </template>
 
@@ -26,6 +49,7 @@ export default {
   data() {
     return {
       open: false,
+      group: null,
     }
   },
   computed: {
@@ -62,7 +86,7 @@ $menu-width: 16rem;
 
     .nav-opener {
       position: absolute;
-      left: ($menu-width - $button-size - 0.5rem);
+      left: 16.75rem;
     }
   }
 }
@@ -77,7 +101,8 @@ $menu-width: 16rem;
 .links {
   display: flex;
   flex-direction: column;
-  font-size: 3rem;
+  font-size: 2rem;
+  background-color: $transparent-white-background !important;
 
   a {
     margin-bottom: 1rem;

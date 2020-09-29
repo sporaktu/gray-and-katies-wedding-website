@@ -18,6 +18,13 @@
 <script>
 export default {
   name: "hamburger",
+  props: {
+    open: {
+      type: Boolean,
+      required: false,
+      default: false,
+    }
+  },
   data() {
     return {
       open: false
@@ -25,7 +32,6 @@ export default {
   },
   methods: {
     click() {
-      this.open = !this.open;
       this.$emit('toggleMenu');
     }
   }
@@ -59,9 +65,7 @@ $container-size: 60px;
   &:hover {
     background: $translucent-white-background;
   }
-  &.open {
-    background: none;
-  }
+
   span {
     display:block;
     background:$gold;
