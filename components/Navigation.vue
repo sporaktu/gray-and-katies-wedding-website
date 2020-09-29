@@ -5,10 +5,11 @@
     </div>
     <div :class="$style.links">
       <n-link to="/">Home</n-link>
-<!--      <n-link to="/story">Our Story</n-link>-->
-<!--      <n-link to="/gallery">Our Memories</n-link>-->
-<!--      <n-link to="/event">Event Details</n-link>-->
-<!--      <n-link to="/registry">Registry</n-link>-->
+      <n-link v-if="loggedIn" to="/story">Our Story</n-link>
+      <n-link v-if="loggedIn" to="/gallery">Our Memories</n-link>
+      <n-link v-if="loggedIn" to="/event">Event Details</n-link>
+      <n-link v-if="loggedIn" to="/registry">Registry</n-link>
+      <n-link v-if="loggedIn" to="/guests">Guests</n-link>
       <n-link to="/rsvp">RSVP</n-link>
     </div>
   </div>
@@ -25,6 +26,11 @@ export default {
   data() {
     return {
       open: false,
+    }
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.loggedIn;
     }
   },
   methods: {

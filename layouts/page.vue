@@ -1,21 +1,18 @@
 <template>
-<div :class="$style.page">
-  <slot></slot>
-</div>
+  <div :class="$style.page">
+    <v-container :class="$style.container">
+      <slot></slot>
+    </v-container>
+  </div>
 </template>
 
 <script>
 export default {
-name: "page"
+  name: "page"
 }
 </script>
 
 <style lang="scss" module>
 @import "assets/design";
 
-.page {
-  display: block;
-  width: 100vw;
-  height: 100vh;
-}
 </style>

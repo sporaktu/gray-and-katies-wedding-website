@@ -1,25 +1,70 @@
 <template>
-  <div :class="$style.guests">
-    <h1>Guests</h1>
-<!--    <vuetable-->
-<!--      :fields="Object.keys(guests[0])"-->
-<!--      :data="guests"-->
-<!--      :api-mode="false"-->
-<!--    />-->
-  </div>
+  <layout>
+    <div :class="$style.guests">
+      <h1>Guests</h1>
+      <v-data-table
+        v-if="guests && guests.length"
+        :class="$style['guest-table']"
+        class="elevation-1"
+        :headers="headers"
+        :items="guests"
+        :search="search"
+        dense
+      >
+        <template #top>
+          <v-text-field
+            v-model="search"
+            label="Search Guests"
+            class="mx-4"
+          />
+        </template>
+      </v-data-table>
+    </div>
+  </layout>
 </template>
 
 <script>
-import Vuetable from 'vuetable-2';
+import Layout from '../layouts/page';
 
 export default {
   name: "guests",
-  components: {Vuetable},
+  middleware: 'auth',
+  components: {Layout},
   data() {
     return {
-      guests: []
+      guests: null,
+      search: '',
+      headers: [
+        {
+          text: 'First Name',
+          value: 'firstname',
+          align: 'start'
+        },
+        {
+          text: 'Last Name',
+          value: 'lastname'
+        },
+        {
+          text: 'Attending',
+          value: 'attending'
+        },
+        {
+          text: 'Phone Number',
+          value: 'phone'
+        },
+        {
+          text: 'Email Address',
+          value: 'email'
+        },
+        {
+          text: 'Song Request',
+          value: 'songrequest',
+          filterable: false
+        },
+      ]
     }
   },
+  computed: {},
   async asyncData({$axios}) {
     return $axios.get('/guests').then(res => {
       return {guests: res.data}
@@ -29,7 +74,12 @@ export default {
 </script>
 
 <style lang="scss" module>
-  .guests {
-
+.guests {
+  * {
+    font-family: Roboto;
   }
+}
+.guest-table {
+  padding: 1rem;
+}
 </style>

@@ -25,6 +25,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  env: {
+    baseUrl: process.env.APP_BASE_URL || 'http://localhost:3000',
+    authDomain: process.env.AUTH_DOMAIN,
+  },
   /*
   ** Global CSS
   */
@@ -48,7 +52,9 @@ export default {
   */
   buildModules: [
     '@aceforth/nuxt-optimized-images',
-    '@nuxtjs/vuetify',
+    ['@nuxtjs/vuetify', {
+
+    }]
   ],
   /*
   ** Nuxt.js modules
@@ -80,7 +86,9 @@ export default {
   publicRuntimeConfig: {
     axios: {
       browserBaseURL: process.env.BROWSER_BASE_URL
-    }
+    },
+    baseURL: process.env.APP_BASE_URL,
+    authDomain: process.env.AUTH_DOMAIN,
   },
   privateRuntimeConfig: {
     axios: {
@@ -90,7 +98,7 @@ export default {
   auth: {
     strategies: {
       auth0: {
-        domain: process.env.DOMAIN || "grayandkatie.us.auth0.com",
+        domain: process.env.AUTH_DOMAIN || "grayandkatie.us.auth0.com",
         client_id: process.env.CLIENT_ID || "ICteoEyvHAtViu1rHLtvG5UuoXp4EU2c",
         audience: process.env.BASE_URL || 'http://localhost:3002',
         // scope: ['admin'],
