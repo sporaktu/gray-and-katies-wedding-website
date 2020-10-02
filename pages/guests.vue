@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Layout from '../layouts/page';
+import Layout from '../layouts/admin-page';
 
 export default {
   name: "guests",
@@ -74,11 +74,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-.guests {
-  * {
-    font-family: Roboto;
-  }
-}
+
 .guest-table {
   padding: 1rem;
 }
