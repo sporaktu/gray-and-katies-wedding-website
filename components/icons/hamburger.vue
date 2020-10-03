@@ -25,11 +25,6 @@ export default {
       default: false,
     }
   },
-  data() {
-    return {
-      open: false
-    }
-  },
   methods: {
     click() {
       this.$emit('toggleMenu');

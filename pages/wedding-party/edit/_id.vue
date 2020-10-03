@@ -36,6 +36,12 @@
           color="primary"
         >submit
         </v-btn>
+        <v-btn
+          @click="cancel"
+          color="secondary"
+        >
+          Cancel
+        </v-btn>
       </v-form>
       <v-card v-if="success" :class="$style.success">
         <h1>Successfully Updated {{ partyMemberValues.firstname }} {{ partyMemberValues.lastname }}.</h1>
@@ -45,7 +51,7 @@
             <v-btn color="primary" @click="resetForm">New Party Member</v-btn>
           </v-col>
           <v-col cols="2">
-            <v-btn color="success" @click="returnToEditWeddingParty">Back to the list</v-btn>
+            <v-btn color="secondary" @click="returnToEditWeddingParty">Back to the list</v-btn>
           </v-col>
         </v-row>
       </v-card>
@@ -113,6 +119,9 @@ export default {
           this.success = true;
         })
     },
+    cancel() {
+      this.$router.push('/wedding-party/edit')
+    },
     resetForm() {
       this.partyMemberValues = DEFAULT_FORM_VALUES;
       this.loading = false;
@@ -136,8 +145,9 @@ export default {
       this.partyMemberValues = {id, firstname, lastname, role, picture_url, story};
     },
     returnToEditWeddingParty() {
-      this.$router.push('/wedding-party');
-    }
+      this.$router.push('/wedding-party/edit');
+    },
+
   },
   created() {
     this.checkIfEditOrNew();
