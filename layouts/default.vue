@@ -1,14 +1,17 @@
 <template>
-  <div :class="$style.layout">
-    <Nuxt />
-    <Rsvp />
-    <Navigation />
-  </div>
+  <v-app>
+    <div :class="$style.layout">
+      <Nuxt/>
+      <Rsvp/>
+      <Navigation/>
+    </div>
+  </v-app>
 </template>
 
 <script>
 import Rsvp from "@/components/Rsvp";
 import Navigation from "@/components/Navigation";
+
 const DefaultLayout = {
   components: {
     Rsvp,
@@ -19,16 +22,17 @@ export default DefaultLayout;
 </script>
 
 <style lang="scss" module>
+@import "assets/design";
+
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: 'Source Sans Pro',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  'Helvetica Neue',
+  Arial,
+  sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -37,7 +41,15 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-
+.layout {
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary-background;
+  * {
+    @include body();
+    @import "assets/design";
+  }
+}
 *,
 *::before,
 *::after {
@@ -74,10 +86,7 @@ html {
   background-color: #35495e;
 }
 
-.layout {
-  width: 100vw;
-  height: 100vh;
-}
+
 </style>
 
 <style lang="scss">

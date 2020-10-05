@@ -21,17 +21,28 @@
             <n-link v-if="loggedIn" to="/gallery">Our Memories</n-link>
           </v-list-item>
           <v-list-item>
+            <n-link to="/wedding-party">Wedding Party</n-link>
+          </v-list-item>
+          <v-list-item>
             <n-link v-if="loggedIn" to="/event">Event Details</n-link>
           </v-list-item>
           <v-list-item>
             <n-link v-if="loggedIn" to="/registry">Registry</n-link>
           </v-list-item>
           <v-list-item>
-            <n-link v-if="loggedIn" to="/guests">Guests</n-link>
-          </v-list-item>
-          <v-list-item>
             <n-link to="/rsvp">RSVP</n-link>
           </v-list-item>
+          <v-list-group :class="$style['list-group']" v-if="loggedIn" :value="true">
+            <template #activator>
+              <v-list-item-title :class="$style['list-group-title']">Admin</v-list-item-title>
+            </template>
+            <v-list-item>
+              <n-link to="/guests">Guests</n-link>
+            </v-list-item>
+            <v-list-item>
+              <n-link to="/wedding-party/edit">Edit Wedding Party</n-link>
+            </v-list-item>
+          </v-list-group>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -107,5 +118,13 @@ $menu-width: 16rem;
   a {
     margin-bottom: 1rem;
   }
+}
+
+.list-group-title {
+  font-size: 2rem;
+}
+
+.list-group > * {
+  padding-left: 0.5em;
 }
 </style>

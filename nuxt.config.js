@@ -50,6 +50,18 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
+  vuetify: {
+    theme: {
+      light: true,
+      themes: {
+        light: {
+          primary: '#a37e2c',
+          secondary: '#d09da2',
+          accent: '#9BA17B'
+        }
+      }
+    }
+  },
   buildModules: [
     '@aceforth/nuxt-optimized-images',
     ['@nuxtjs/vuetify', {
