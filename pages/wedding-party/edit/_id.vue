@@ -19,14 +19,26 @@
             />
           </v-col>
         </v-row>
-        <v-select
-          v-model="partyMemberValues.role"
-          label="Role"
-          required
-          :items="roles"
-          item-text="text"
-          value="value"
-        />
+        <v-row>
+          <v-col cols="6">
+            <v-select
+              v-model="partyMemberValues.role"
+              label="Role"
+              required
+              :items="roles"
+              item-text="text"
+              value="value"
+            />
+          </v-col>
+          <v-col cols="6">
+            <v-file-input
+              label="File input"
+              filled
+              prepend-icon="mdi-camera"
+              v-model="partyMemberValues.image"
+            />
+          </v-col>
+        </v-row>
         <v-textarea
           v-model="partyMemberValues.story"
           label="Story"
@@ -68,10 +80,11 @@ const DEFAULT_FORM_VALUES = {
   role: '',
   story: '',
   id: '',
-}
+  image: null,
+};
 
 export default {
-  name: "EditUser",
+  name: 'EditUser',
   middleware: 'auth',
   components: {Layout},
   data() {
@@ -85,6 +98,7 @@ export default {
         role: '',
         story: '',
         id: '',
+        image: null,
       },
       roles: [
         {text: 'Bride', value: 'bride'},
@@ -97,30 +111,41 @@ export default {
         {text: 'Father of the Bride', value: 'bridefather'},
         {text: 'Mother of the Groom', value: 'groommother'},
         {text: 'Father of the Groom', value: 'groomfather'},
-      ]
-    }
+      ],
+    };
   },
   computed: {
     id() {
       return this.$route.params.id;
-    }
+    },
   },
   methods: {
     submit() {
       this.loading = true;
       this.failed = false;
-      this.$axios.$post('/wedding-party', this.partyMemberValues)
-        .then(response => {
-          this.loading = false;
-          if (response !== 'success') {
-            this.failed = true;
-            return;
-          }
-          this.success = true;
-        })
+      // console.log(this.partyMemberValues.image)
+      this.savePicture();
+      // this.$axios.setHeader('Content-Type', 'multipart/form-data');
+      // this.$axios.post('/wedding-party', this.partyMemberValues
+      //   // {headers: {'content-type': 'multipart/form-data'}}
+      // )
+      //   .then(response => {
+      //     this.loading = false;
+      //     if (response !== 'success') {
+      //       this.failed = true;
+      //       return;
+      //     }
+      //     this.success = true;
+      //   })
+    },
+    savePicture() {
+      const formData = new FormData();
+      formData.set('file', this.partyMemberValues.image);
+      this.$axios.post(`${process.env.baseUrl}/api/upload`, formData,
+        {headers: {'content-type': 'multipart/form-data'}});
     },
     cancel() {
-      this.$router.push('/wedding-party/edit')
+      this.$router.push('/wedding-party/edit');
     },
     resetForm() {
       this.partyMemberValues = DEFAULT_FORM_VALUES;
@@ -128,14 +153,13 @@ export default {
       this.failed = false;
       this.success = false;
     },
-    checkIfEditOrNew(){
-      if(this.id === 'new') return;
-      this.fetchMemberById(this.id)
+    checkIfEditOrNew() {
+      if (this.id === 'new') return;
+      this.fetchMemberById(this.id);
     },
     fetchMemberById(id) {
       this.loading = true;
-      this.$axios.$get(`/wedding-party/${id}`)
-      .then(response => {
+      this.$axios.$get(`/wedding-party/${id}`).then(response => {
         this.setPartyMemberValues(response[0]);
         this.loading = false;
       });
@@ -151,14 +175,15 @@ export default {
   },
   created() {
     this.checkIfEditOrNew();
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" module>
 .edit-user {
   padding: 1rem;
 }
+
 .success {
   padding: 1rem;
 }

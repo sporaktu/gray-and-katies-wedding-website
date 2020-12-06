@@ -122,5 +122,8 @@ export default {
     redirect: {
       callback: '/callback'
     }
-  }
+  },
+  serverMiddleware: [
+    {path: '/api', handler: '~/api/index.js'}
+  ]
 }

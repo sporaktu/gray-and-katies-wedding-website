@@ -19,6 +19,7 @@
     "axios": "^0.20.0",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
+    "multer": "^1.4.2",
     "nuxt": "^2.14.0",
     "nuxt-webfontloader": "^1.1.0",
     "vue-template-compiler": "^2.6.12",
