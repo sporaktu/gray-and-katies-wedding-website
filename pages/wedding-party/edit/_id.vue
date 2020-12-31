@@ -101,6 +101,7 @@ export default {
         {text: 'Bride', value: 'bride'},
         {text: 'Groom', value: 'Groom'},
         {text: 'Maid of Honor', value: 'maidofhonor'},
+        {text: 'Matron of Honor', value: 'matronofhonor'},
         {text: 'Best Man', value: 'bestman'},
         {text: 'Bridesmaid', value: 'bridesmaid'},
         {text: 'Groomsman', value: 'Groomsman'},
