@@ -1,10 +1,10 @@
 <template>
-  <div>sdlfkjsdlkfjs alkfjasd;l kfjsad;lkf jasd;lf</div>
+  <div>reigstrsdfaslkdfj</div>
 </template>
 
 <script>
 export default {
-  name: 'gallery',
+  name: 'registry',
 };
 </script>
 

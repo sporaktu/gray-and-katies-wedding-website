@@ -1,7 +1,7 @@
 <template>
   <div id="home" :class="$style.home">
     <div :class="$style['title-container']">
-      <img src="../assets/images/accents/watercolor-flower-border.png" :class="$style.border" />
+<!--      <img src="../assets/images/accents/watercolor-flower-border.png" :class="$style.border" />-->
       <div :class="$style.text">
         <h1>Katie & Gray</h1>
         <h2>May 23rd, 2021</h2>
