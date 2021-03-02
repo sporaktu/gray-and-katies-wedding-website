@@ -12,7 +12,7 @@
         <template #top>
           <v-text-field
             v-model="search"
-            label="Search Wedding Party"
+            label="Search"
             class="mx-4"
           />
         </template>
@@ -59,7 +59,7 @@ export default {
   name: "edit-table",
   props: {
     items: {
-      type: Object || null,
+      value: [Object, null],
       required: true,
     },
     headers: {

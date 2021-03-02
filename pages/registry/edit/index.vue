@@ -70,6 +70,11 @@ export default {
           text: 'Modified',
           value: 'date_modified'
         },
+        {
+          text: 'Actions',
+          value: 'actions',
+          sortable: false
+        }
       ]
     }
   },
@@ -92,7 +97,7 @@ export default {
   },
   async asyncData({$axios}) {
     return $axios.get('/registry').then(res => {
-      return {party: res.data}
+      return {items: res.data}
     })
   }
 };

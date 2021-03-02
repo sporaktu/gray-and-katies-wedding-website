@@ -1,7 +1,7 @@
 <template>
   <div :class="[$style.navigation, {[$style.open]: open}]">
     <div :class="$style['nav-opener']">
-      <Hamburger :open="open" @toggleMenu="toggleMenu"/>
+      <hamburger :open="open" @toggleMenu="toggleMenu"/>
     </div>
     <v-navigation-drawer
       :class="$style.links"
@@ -53,11 +53,11 @@
 </template>
 
 <script>
-import Hamburger from "@/components/icons/hamburger";
+import Hamburger from "./icons/hamburger";
 
 export default {
   name: "Navigation",
-  comments: {
+  components: {
     Hamburger,
   },
   data() {
