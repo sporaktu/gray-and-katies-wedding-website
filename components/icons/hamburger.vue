@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "hamburger",
+  name: "Hamburger",
   props: {
     open: {
       type: Boolean,

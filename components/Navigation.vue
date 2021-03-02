@@ -1,7 +1,7 @@
 <template>
   <div :class="[$style.navigation, {[$style.open]: open}]">
     <div :class="$style['nav-opener']">
-      <Hamburger :open="open" @toggleMenu="toggleMenu"/>
+      <hamburger :open="open" @toggleMenu="toggleMenu"/>
     </div>
     <v-navigation-drawer
       :class="$style.links"
@@ -14,25 +14,25 @@
           <v-list-item>
             <n-link to="/">Home</n-link>
           </v-list-item>
-          <v-list-item>
-            <n-link v-if="loggedIn" to="/story">Our Story</n-link>
+          <v-list-item  v-if="loggedIn">
+            <n-link to="/story">Our Story</n-link>
           </v-list-item>
-          <v-list-item>
-            <n-link v-if="loggedIn" to="/gallery">Our Memories</n-link>
+          <v-list-item  v-if="loggedIn">
+            <n-link to="/gallery">Our Memories</n-link>
           </v-list-item>
           <v-list-item>
             <n-link to="/wedding-party">Wedding Party</n-link>
           </v-list-item>
-          <v-list-item>
-            <n-link v-if="loggedIn" to="/event">Event Details</n-link>
+          <v-list-item  v-if="loggedIn">
+            <n-link to="/event">Event Details</n-link>
           </v-list-item>
-          <v-list-item>
-            <n-link v-if="loggedIn" to="/registry">Registry</n-link>
+          <v-list-item  v-if="loggedIn">
+            <n-link to="/registry">Registry</n-link>
           </v-list-item>
           <v-list-item>
             <n-link to="/rsvp">RSVP</n-link>
           </v-list-item>
-          <v-list-group :class="$style['list-group']" v-if="loggedIn" :value="true">
+ <v-list-group :class="$style['list-group']" :value="true" v-if="loggedIn">
             <template #activator>
               <v-list-item-title :class="$style['list-group-title']">Admin</v-list-item-title>
             </template>
@@ -42,6 +42,9 @@
             <v-list-item>
               <n-link to="/wedding-party/edit">Edit Wedding Party</n-link>
             </v-list-item>
+            <v-list-item>
+              <n-link to="/registry/edit">Edit Registry</n-link>
+            </v-list-item>
           </v-list-group>
         </v-list-item-group>
       </v-list>
@@ -50,11 +53,11 @@
 </template>
 
 <script>
-import Hamburger from "@/components/icons/hamburger";
+import Hamburger from "./icons/hamburger";
 
 export default {
   name: "Navigation",
-  comments: {
+  components: {
     Hamburger,
   },
   data() {

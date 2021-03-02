@@ -1,7 +1,7 @@
 <template>
   <layout>
     <v-card :class="$style['edit-user']">
-      <h1>Edit User</h1>
+      <h1>Edit Party Member</h1>
       <v-form v-if="!success">
         <v-row>
           <v-col cols="6">

@@ -9,6 +9,7 @@
     <div :class="$style.party">
       <v-card
         :class="$style.member" v-for="member in party"
+        :key="member.id"
         class="mx-auto"
         max-width="500"
       >
