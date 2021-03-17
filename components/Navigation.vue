@@ -40,6 +40,9 @@
               <n-link to="/guests">Guests</n-link>
             </v-list-item>
             <v-list-item>
+              <n-link to="/story/edit">Edit Story</n-link>
+            </v-list-item>
+            <v-list-item>
               <n-link to="/wedding-party/edit">Edit Wedding Party</n-link>
             </v-list-item>
             <v-list-item>

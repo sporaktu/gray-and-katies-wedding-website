@@ -74,10 +74,10 @@
         <h3>Would you like to add someone new or go back to the the list of registry items?</h3>
         <v-row>
           <v-col cols="2">
-            <v-btn color="primary" @click="resetForm">New Registry Item</v-btn>
+            <v-btn color="primary" @click="resetForm">New</v-btn>
           </v-col>
           <v-col cols="2">
-            <v-btn color="secondary" @click="returnToEditRegistry">Back to the list</v-btn>
+            <v-btn color="secondary" @click="returnToEditAll">Back to the list</v-btn>
           </v-col>
         </v-row>
       </v-card>
@@ -87,6 +87,7 @@
 
 <script>
 import Layout from '../../../layouts/admin-page'
+import editPageMixin from '../../../mixins/editPage'
 
 const DEFAULT_FORM_VALUES = {
   id: '',
@@ -103,8 +104,10 @@ const DEFAULT_FORM_VALUES = {
 export default {
   name: 'EditRegistryItem',
   components: {Layout},
+  mixins: [editPageMixin],
   data() {
     return {
+      route: 'registry',
       loading: false,
       success: false,
       failed: false,
@@ -128,55 +131,6 @@ export default {
       }
     }
   },
-  computed: {
-    id() {
-      return this.$route.params.id
-    }
-  },
-  methods: {
-    submit() {
-      this.loading = true;
-      this.failed = false;
-      this.$axios.$post(`/registry`, this.values).then(res => {
-        this.loading = false;
-        if (res !== 'success') {
-          this.failed = true;
-          return;
-        }
-        this.success = true;
-      })
-    },
-    cancel() {
-      this.$router.push('/registry/edit')
-    },
-    resetForm() {
-      this.values = DEFAULT_FORM_VALUES;
-      this.loading = false;
-      this.failed = false;
-      this.success = false;
-    },
-    returnToEditRegistry() {
-      this.$router.push('/registry/edit')
-    },
-    checkIfEditOrNew() {
-      if (this.id === 'new') return;
-      this.fetchItemById(this.id);
-    },
-    fetchItemById(id) {
-        this.loading = true;
-        this.$axios.$get(`/registry/${id}`).then(res => {
-          this.setItemValues(res[0]);
-          this.loading = false;
-        })
-    },
-    setItemValues(response) {
-      const {id, name, url, price, store, picture_url, purchased, purchaser_first_name, purchaser_last_name} = response;
-      this.values = {id, name, url, store, price, picture_url, purchased, purchaser_first_name, purchaser_last_name};
-    }
-  },
-  created() {
-    this.checkIfEditOrNew();
-  }
 };
 </script>
 

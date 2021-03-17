@@ -68,7 +68,8 @@ export default {
     },
     nameIdentifier: {
       type: String,
-      required: true
+      required: false,
+      default: 'this item'
     },
     itemType: {
       type: String,
