@@ -2,10 +2,13 @@ $base-font-size: 16px;
 
 
 @mixin cursive {
-  font-family: 'Dawning of a New Day', cursive;
+  //font-family: 'Dawning of a New Day', cursive;
+  font-family: 'Parisienne', cursive;
+
 }
 
 @mixin handwritten {
+  //font-family: 'Parisinne', cursive;
   font-family: 'Amatic SC', cursive;
 }
 @mixin body {

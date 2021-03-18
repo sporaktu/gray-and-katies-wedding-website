@@ -14,19 +14,19 @@
           <v-list-item>
             <n-link to="/">Home</n-link>
           </v-list-item>
-          <v-list-item  v-if="loggedIn">
+          <v-list-item>
             <n-link to="/story">Our Story</n-link>
           </v-list-item>
-          <v-list-item  v-if="loggedIn">
+          <v-list-item>
             <n-link to="/gallery">Our Memories</n-link>
           </v-list-item>
           <v-list-item>
             <n-link to="/wedding-party">Wedding Party</n-link>
           </v-list-item>
-          <v-list-item  v-if="loggedIn">
+          <v-list-item>
             <n-link to="/event">Event Details</n-link>
           </v-list-item>
-          <v-list-item  v-if="loggedIn">
+          <v-list-item>
             <n-link to="/registry">Registry</n-link>
           </v-list-item>
           <v-list-item>
