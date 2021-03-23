@@ -18,16 +18,17 @@ const editPageMixin = {
       })
     },
     cancel() {
+      console.log(this.route)
       this.$router.push(`/${this.route}/edit`)
     },
     resetForm() {
-      this.values = DEFAULT_FORM_VALUES;
+      this.values = this.DEFAULT_FORM_VALUES;
       this.loading = false;
       this.failed = false;
       this.success = false;
     },
     returnToEditAll() {
-      this.$router.push(`/${this.route}/edit`)
+      this.cancel()
     },
     checkIfEditOrNew() {
       if (this.id === 'new') return;

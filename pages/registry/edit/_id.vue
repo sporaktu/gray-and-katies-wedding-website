@@ -77,7 +77,7 @@
             <v-btn color="primary" @click="resetForm">New</v-btn>
           </v-col>
           <v-col cols="2">
-            <v-btn color="secondary" @click="returnToEditAll">Back to the list</v-btn>
+            <v-btn color="secondary" @click="cancel">Back to the list</v-btn>
           </v-col>
         </v-row>
       </v-card>
@@ -89,22 +89,11 @@
 import Layout from '../../../layouts/admin-page'
 import editPageMixin from '../../../mixins/editPage'
 
-const DEFAULT_FORM_VALUES = {
-  id: '',
-  name: '',
-  url: '',
-  store: '',
-  picture_url: '',
-  price: '',
-  purchased: false,
-  purchaser_first_name: '',
-  purchaser_last_name: '',
-}
 
 export default {
   name: 'EditRegistryItem',
   components: {Layout},
-  mixins: [editPageMixin],
+  // mixins: [editPageMixin],
   data() {
     return {
       route: 'registry',
@@ -112,6 +101,17 @@ export default {
       success: false,
       failed: false,
       values: {
+        id: '',
+        name: '',
+        url: '',
+        store: '',
+        picture_url: '',
+        price: '',
+        purchased: false,
+        purchaser_first_name: '',
+        purchaser_last_name: '',
+      },
+      DEFAULT_FORM_VALUES: {
         id: '',
         name: '',
         url: '',
@@ -130,6 +130,54 @@ export default {
         }
       }
     }
+  },
+  computed: {
+    id() {
+      return this.$route.params.id;
+    },
+  },
+  methods: {
+    submit() {
+      this.loading = true;
+      this.failed = false;
+      console.log(this.values)
+      this.$axios.$post('/registry', this.values).then(response => {
+        this.loading = false;
+        if (response !== 'success') {
+          this.failed = true;
+          return;
+        }
+        this.success = true;
+      });
+    },
+    cancel() {
+      this.$router.push('/registry/edit');
+    },
+    resetForm() {
+      this.partyMemberValues = this.DEFAULT_FORM_VALUES;
+      this.loading = false;
+      this.failed = false;
+      this.success = false;
+    },
+    checkIfEditOrNew() {
+      if (this.id === 'new') return;
+      this.fetchMemberById(this.id);
+    },
+    fetchMemberById(id) {
+      this.loading = true;
+      this.$axios.$get(`/registry/${id}`).then(response => {
+        this.setPartyMemberValues(response[0]);
+        this.loading = false;
+      });
+    },
+    setPartyMemberValues(response) {
+      console.log({...response})
+      const {id, name, url, store, price, picture_url, purchased, purchaser_first_name, purchaser_last_name} = response;
+      this.values = {id, name, url, store, price, picture_url, purchased, purchaser_first_name, purchaser_last_name};
+    },
+  },
+  created() {
+    this.checkIfEditOrNew();
   },
 };
 </script>

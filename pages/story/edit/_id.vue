@@ -45,7 +45,7 @@
             <v-btn color="primary" @click="resetForm">New</v-btn>
           </v-col>
           <v-col cols="2">
-            <v-btn color="secondary" @click="returnToEditAll">Back to the list</v-btn>
+            <v-btn color="secondary" @click="cancel">Back to the list</v-btn>
           </v-col>
         </v-row>
       </v-card>
@@ -57,11 +57,6 @@
 import Layout from '../../../layouts/admin-page'
 import editPageMixin from '../../../mixins/editPage'
 
-const DEFAULT_FORM_VALUES = {
-  id: '',
-  body: '',
-  order: 0
-}
 export default {
   name: "edit-story-block",
   components: {Layout},
@@ -73,6 +68,11 @@ export default {
       success: false,
       failed: false,
       values: {
+        id: '',
+        body: '',
+        order: 0
+      },
+      DEFAULT_FORM_VALUES: {
         id: '',
         body: '',
         order: 0
