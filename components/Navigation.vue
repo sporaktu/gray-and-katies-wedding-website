@@ -23,12 +23,12 @@
           <v-list-item>
             <n-link to="/wedding-party">Wedding Party</n-link>
           </v-list-item>
-          <v-list-item>
-            <n-link to="/event">Event Details</n-link>
-          </v-list-item>
-          <v-list-item>
-            <n-link to="/registry">Registry</n-link>
-          </v-list-item>
+<!--          <v-list-item>-->
+<!--            <n-link to="/event">Event Details</n-link>-->
+<!--          </v-list-item>-->
+<!--          <v-list-item>-->
+<!--            <n-link to="/registry">Registry</n-link>-->
+<!--          </v-list-item>-->
           <v-list-item>
             <n-link to="/rsvp">RSVP</n-link>
           </v-list-item>
@@ -38,6 +38,9 @@
             </template>
             <v-list-item>
               <n-link to="/guests">Guests</n-link>
+            </v-list-item>
+            <v-list-item>
+              <n-link to="/gallery/edit">Edit Photo Memories</n-link>
             </v-list-item>
             <v-list-item>
               <n-link to="/story/edit">Edit Story</n-link>

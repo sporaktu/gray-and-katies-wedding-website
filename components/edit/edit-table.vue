@@ -16,6 +16,16 @@
             class="mx-4"
           />
         </template>
+        <template #item.url="{item}" v-if="itemType === 'photo'">
+          <div class="pa-4">
+            <v-img
+              :src="item.url"
+              max-height="300"
+              max-width="300"
+            />
+            {{ item.url }}
+          </div>
+        </template>
         <template #item.actions="{ item }">
           <v-icon
             small
@@ -46,7 +56,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
-          <v-btn color="primary" text @click="deleteItem">Yes, delete {{itemName}}</v-btn>
+          <v-btn color="primary" text @click="deleteItem">Yes, delete {{ itemName }}</v-btn>
           <v-btn color="secondary" text @click="cancelDelete">Nevermind</v-btn>
         </v-card-actions>
       </v-card>
@@ -109,8 +119,8 @@ export default {
 </script>
 
 <style lang="scss" module>
-  .edit-table {
-    padding: 1rem;
-    width: 100%;
-  }
+.edit-table {
+  padding: 1rem;
+  width: 100%;
+}
 </style>

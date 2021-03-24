@@ -3,9 +3,9 @@
     <v-container fluid>
       <v-row>
         <v-col cols="6">
-          <v-card class="ma-4 pa-4">
+          <div class="ma-4 pa-4" :class="$style.story">
             <v-row>
-              <v-col>
+              <v-col justify="center">
                 <h1>Our Story</h1>
               </v-col>
             </v-row>
@@ -16,9 +16,11 @@
                 </div>
               </v-col>
             </v-row>
-          </v-card>
+          </div>
         </v-col>
-        <v-col cols="6"></v-col>
+        <v-col cols="6">
+          <v-img src=""></v-img>
+        </v-col>
       </v-row>
     </v-container>
   </layout>
@@ -44,5 +46,13 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import "assets/design";
+.story {
+  background-color: $translucent-white-background;
+
+  h1 {
+    color: $title-color;
+  }
+}
 
 </style>
