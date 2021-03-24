@@ -37,7 +37,7 @@
           </v-col>
         </v-row>
       </v-form>
-      <v-card v-if="success">
+      <v-card v-if="success" class="ma-4 pa-4">
         <h1>Successfully Updated.</h1>
         <h3>Would you like to add someone new or go back to the the list of registry items?</h3>
         <v-row>

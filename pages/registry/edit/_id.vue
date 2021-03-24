@@ -69,7 +69,7 @@
           Cancel
         </v-btn>
       </v-form>
-      <v-card v-if="success" :class="$style.success">
+      <v-card v-if="success" :class="$style.success" class="ma-4 pa-4">
         <h1>Successfully Updated {{ values.name }}.</h1>
         <h3>Would you like to add someone new or go back to the the list of registry items?</h3>
         <v-row>
