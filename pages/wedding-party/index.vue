@@ -77,7 +77,7 @@ export default {
       return this.filterRole('bridesmaid');
     },
     groomsmen() {
-      return this.filterRole('groomsman')
+      return this.filterRole('Groomsman')
     },
     bestMan() {
       return this.filterRole('bestman');
