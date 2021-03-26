@@ -33,6 +33,7 @@
                       :class="$style.logo"
                       :src="storeLogo(item.store)"
                       v-if="item.store === 'Amazon' || item.store === 'Target'"
+                      position="center center"
                     />
                     <svg v-else-if="item.store === 'Bed, Bath and Beyond'" viewBox="0 0 127 39" class="currColor"
                          preserveAspectRatio="xMinYMid">
