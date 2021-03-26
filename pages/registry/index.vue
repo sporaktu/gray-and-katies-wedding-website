@@ -26,7 +26,7 @@
               />
               <div class="product-info">
                 <div :class="$style['item-name']" class="">{{ item.name }}</div>
-                <div :class="$style.bottom" class="" v-if="item.price || item.store">
+                <div :class="$style.bottom" class="pt-4" v-if="item.price || item.store">
                   <div :class="$style.price" v-if="item.price">{{ item.price }}</div>
                   <div :class="$style['logo-container']" v-if="store">
                     <v-img
