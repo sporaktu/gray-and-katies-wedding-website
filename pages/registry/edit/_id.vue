@@ -22,6 +22,15 @@
           </v-col>
         </v-row>
         <v-row>
+          <v-col cols="12">
+            <v-text-field
+              v-model="values.picture_url"
+              label="Picture URL"
+              required
+            />
+          </v-col>
+        </v-row>
+        <v-row>
           <v-col cols="4">
             <v-text-field
               v-model="values.price"

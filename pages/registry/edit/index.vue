@@ -9,7 +9,11 @@
         item-type="Registry Item"
         @delete="deleteItem"
         @edit="editItem"
-      />
+      >
+        <template #customButton>
+          <v-btn class="mt-4" @click="refreshItems" color="green" light>Refresh Item Info</v-btn>
+        </template>
+      </edit-table>
     </v-card>
   </layout>
 </template>
@@ -92,6 +96,12 @@ export default {
     fetchRegistry() {
       return this.$axios.get('/registry').then(res => {
         this.party = res.data
+      })
+    },
+    refreshItems() {
+      this.$axios.$post(`/registry/refresh`)
+      .then(() => {
+        this.fetchRegistry();
       })
     }
   },

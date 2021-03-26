@@ -43,9 +43,12 @@
         </template>
       </v-data-table>
     </v-card>
-    <v-btn :class="$style['add-button']" class="mt-2" @click="editItem('new')" color="primary">
-      Add {{ itemType }}
-    </v-btn>
+    <div :class="$style.buttons">
+      <v-btn :class="$style['add-button']" class="mt-4 mr-4" @click="editItem('new')" color="primary">
+        Add {{ itemType }}
+      </v-btn>
+      <slot name="customButton"></slot>
+    </div>
     <v-dialog v-model="showConfirmation" persistent max-width="800">
       <v-card v-if="itemToDelete">
         <v-card-title class="headline">
@@ -122,5 +125,10 @@ export default {
 .edit-table {
   padding: 1rem;
   width: 100%;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 </style>

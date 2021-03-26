@@ -10,6 +10,7 @@
       height="600px"
       :src="info.picture_url"
       class="white--text align-end"
+      fill
     >
     </v-img>
     <v-card-title>{{ info.firstname }} {{ info.lastname }}</v-card-title>
