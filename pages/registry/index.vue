@@ -14,7 +14,7 @@
             <v-card
               v-for="item in registry"
               :key="item.id"
-              class="ma-2"
+              class="ma-2 pa-4"
               :class="$style.item"
               width="300"
               :href="item.url"
@@ -25,8 +25,8 @@
                 :src="item.picture_url"
               />
               <div class="product-info">
-                <div :class="$style['item-name']" class="px-4 py-4">{{ item.name }}</div>
-                <div :class="$style.bottom" class="px-4 pb-4" v-if="item.price || item.store">
+                <div :class="$style['item-name']" class="">{{ item.name }}</div>
+                <div :class="$style.bottom" class="" v-if="item.price || item.store">
                   <div :class="$style.price" v-if="item.price">{{ item.price }}</div>
                   <div :class="$style['logo-container']" v-if="store">
                     <v-img
