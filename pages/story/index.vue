@@ -9,7 +9,7 @@
         </v-row>
         <v-row v-for="chunk in chunks" :key="chunk.id">
           <v-col>
-            <div class="chunk">
+            <div :class="$style.chunk">
               {{ chunk.body }}
             </div>
           </v-col>
@@ -48,7 +48,12 @@ export default {
 
   h1 {
     color: $title-color;
+    font-size: 3rem;
   }
+}
+
+.chunk {
+  font-size: 1.5rem;
 }
 
 .story-container {
