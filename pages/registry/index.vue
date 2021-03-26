@@ -23,6 +23,7 @@
             >
               <v-img
                 :src="item.picture_url"
+                position="center center"
               />
               <div class="product-info">
                 <div :class="$style['item-name']" class="">{{ item.name }}</div>
