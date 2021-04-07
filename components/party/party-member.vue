@@ -4,7 +4,7 @@
     :class="$style.member"
     :key="info.id"
     class="mx-auto"
-    :max-width="width"
+    :width="width"
   >
     <v-img
       height="600px"
